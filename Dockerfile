@@ -4,8 +4,9 @@ WORKDIR /app
 
 COPY . .
 
+#TODO change this to npm ci (continuous integration install) when you are ready to deploy
 RUN npm install
 
 EXPOSE 1234
 
-CMD [ "node", "app.js" ]
+CMD [ "npm", "run", "serve" ]
