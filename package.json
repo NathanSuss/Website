@@ -1,0 +1,25 @@
+{
+  "name": "nathan-programs",
+  "version": "1.0.0",
+  "description": "For my website",
+  "main": "index.js",
+  "scripts": {
+    "test": "run-tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanSuss/Nathan-Programs.git"
+  },
+  "keywords": [
+    "Personal",
+    "Website",
+    "Nathan",
+    "Sussman"
+  ],
+  "author": "Nathan Sussman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NathanSuss/Nathan-Programs/issues"
+  },
+  "homepage": "https://github.com/NathanSuss/Nathan-Programs#readme"
+}
