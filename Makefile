@@ -6,59 +6,10 @@
 # default message for git push - example: make push MSG="<my unique commit message>"
 MSG := another commit 
 
-# does not contain all flags, just the commmon cluttery ones
-DOCKER_FLAGS := -v /home/n8suss/Website:/home/Website -w /home/Website -p 1234:1234
-
-docker-push:
-	docker tag nathan-programs_i nathansuss/nathan-programs
-	docker push nathansuss/nathan-programs
-
-# build docker image  and name it nathan-programs_i (_i = image)
-# docker build <name:<optional>tag is nathan-programs_i> <tell `build` the location of Dockerfile containing image blueprint>
-docker-build:
-	docker build -t nathan-programs_i .
-
-# --rm remove the container when it stops
-# -it allow me to run terminal commands in the container
-# -v mount my current directory to the container
-# -w specify working directory of container
-# -p specify local host mapping from docker containers local host to this local host
-# --name name the container
-
-# run an interactive local docker container that will be removed when stopped
-docker-run-temp:
-	docker run --rm -it $(DOCKER_FLAGS) --name nathan-programs_c nathan-programs_i
-
-# -d run in detached mode. No longer reliant on my terminal, becomes a background process
-# --restart when my computer powers down and restarts, this container will automatically restart too (every time it is stopped it will restart)
-# -v mount my current directory to the container
-# -w specify working directory of container
-# -p specify local host mapping from docker containers local host to this local host
-# --name name the container
-
-# run a background docker container that will persist until manually destroyed
-docker-run:
-	docker run -d --restart $(DOCKER_FLAGS) --name nathan-programs_c nathan-programs_i
-
-# useful for destroying a container with the --restart flag
-docker-delete:
-	docker rm nathan-programs_c
-
-docker-list-images:
-	docker images
-
-docker-list-processes:
-	docker ps
-
-docker-stop:
-	docker stop nathan-programs_c
-
-docker-start:
-	docker start nathan-programs_c
-
-docker-debug:
-	docker logs nathan-programs_c > temp_debug.txt
-	docker inspect nathan-programs_c >> temp_debug.txt
+# Define ANSI escape codes for colors
+GREEN := \033[32m
+RED := \033[31m
+RESET := \033[0m
 
 push:
 	git add -A .
@@ -70,9 +21,36 @@ versions:
 	node -v 
 	npm -v 
 
-install-dependencies:
-	npm install -g @vue/cli
-
 # run docker-compose.yml
-compose:
-	docker compose up 
+start:
+	-docker compose up 
+
+start-dev:
+	-docker compose up vue_app_dev
+
+start-production:
+	-docker compose up vue_app_prod
+
+IMAGES := nathansuss/vue_app:production \
+website-vue_app_dev:latest \
+vue_helper:latest
+
+clean:
+	@echo "$(GREEN)Stop containers$(RESET)"
+	-@docker compose down
+	@echo "$(GREEN)Remove containers$(RESET)"
+	-@yes | docker container prune
+	@echo "$(GREEN)Remove volumes$(RESET)"
+	-@yes | docker volume prune
+	@echo "$(GREEN)Remove images$(RESET)"
+	-@docker rmi $(IMAGES)
+
+show:
+	-docker images 
+	-docker ps 
+	-docker volume ls 
+	-docker container ls
+
+vue-helper: clean
+	sh Setup.sh
+	
