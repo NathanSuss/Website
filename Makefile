@@ -7,8 +7,11 @@
 MSG := another commit 
 
 # does not contain all flags, just the commmon cluttery ones
-DOCKER_FLAGS := -v $(pwd):/home/Website -w /home/Website -p 1234:1234
+DOCKER_FLAGS := -v /home/n8suss/Website:/home/Website -w /home/Website -p 1234:1234
 
+docker-push:
+	docker tag nathan-programs_i nathansuss/nathan-programs
+	docker push nathansuss/nathan-programs
 
 # build docker image  and name it nathan-programs_i (_i = image)
 # docker build <name:<optional>tag is nathan-programs_i> <tell `build` the location of Dockerfile containing image blueprint>
@@ -66,3 +69,10 @@ push:
 versions:
 	node -v 
 	npm -v 
+
+install-dependencies:
+	npm install -g @vue/cli
+
+# run docker-compose.yml
+compose:
+	docker compose up 

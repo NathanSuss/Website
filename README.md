@@ -1,5 +1,11 @@
 # nathan-programs
 
+
+Credit to: 
+- https://blog.q-bit.me/how-to-develop-and-deploy-a-vue-js-app-with-docker-part-one/
+- https://blog.q-bit.me/a-step-by-step-guide-for-developing-and-deploying-a-vue-js-app-with-docker-part-two/
+- https://blog.q-bit.me/a-step-by-step-guide-to-developing-and-deploying-vue-apps-with-docker-part-three/
+
 ## Project setup
 ```
 npm install
