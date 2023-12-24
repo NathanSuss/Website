@@ -6,7 +6,6 @@
 export default {
   name: 'LinkTesting',
   props: {
-    msg: String
   }
 }
 </script>
