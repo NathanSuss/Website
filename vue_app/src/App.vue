@@ -7,7 +7,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import LinkTesting from './components/ LinkTesting.vue
+import LinkTesting from './components/LinkTesting.vue
 
 export default {
   name: 'App',
