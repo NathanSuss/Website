@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'LinkTest',
+  name: 'LinkTesting',
   props: {
     msg: String
   }
