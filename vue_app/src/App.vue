@@ -1,4 +1,6 @@
 <template>
+  <LinkTesting/>
+
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Testing continuous deployment with Vercel"/>
 </template>
