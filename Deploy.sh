@@ -1,7 +1,7 @@
 # old - use docker compose
 
-docker build -f ./dockerfiles/Deploy.Dockerfile -t nathansuss/vue_app:production vue_app
+docker build -f ./dockerfiles/Deploy.Dockerfile -t nathansuss/nathan-programs:production nathan-programs
 
-docker run -p 80:80 vue_app:production
+docker run -p 80:80 nathan-programs:production
 
-docker push nathansuss/vue_app:production
+docker push nathansuss/nathan-programs:production

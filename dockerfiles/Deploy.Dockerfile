@@ -1,7 +1,7 @@
 # build stage
 FROM node:21.4.0-bookworm AS build-stage
 
-WORKDIR /vue_app
+WORKDIR /nathan-programs
 
 COPY package.json ./
 
@@ -14,7 +14,7 @@ RUN npm run build
 # production stage
 FROM nginx AS production-stage
 
-COPY --from=build-stage /vue_app/dist /usr/share/nginx/html
+COPY --from=build-stage /nathan-programs/dist /usr/share/nginx/html
 
 EXPOSE 80
 

@@ -1,14 +1,14 @@
 version: "3.8"
 services:
-  vue_app_dev:
+  nathan-programs_dev:
     build:
       dockerfile: dockerfiles/Dev.Dockerfile
     volumes:
-      - ~/Website/vue_app:/vue_app
+      - ~/Website/nathan-programs:/nathan-programs
     ports:
       - "8080:8080"
 
-  vue_app_prod:
-    image: nathansuss/vue_app:production
+  nathan-programs_prod:
+    image: nathansuss/nathan-programs:production
     ports:
       - "80:80"

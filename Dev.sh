@@ -1,5 +1,5 @@
 # old - use docker compose
 
-docker build -f ./dockerfiles/Dev.Dockerfile -t vue_app:dev vue_app
+docker build -f ./dockerfiles/Dev.Dockerfile -t nathan-programs:dev nathan-programs
 
-docker run --rm -v ~/Website/vue_app:/vue_app -p 8080:8080 -it vue_app:dev
+docker run --rm -v ~/Website/nathan-programs:/nathan-programs -p 8080:8080 -it nathan-programs:dev
