@@ -26,14 +26,14 @@ start:
 	-docker compose up 
 
 start-dev:
-	-docker compose up vue_app_dev
+	-docker compose up nathan-programs_dev
 
 start-production:
-	-docker compose up vue_app_prod
+	-docker compose up nathan-programs_prod
 
-IMAGES := nathansuss/vue_app:production \
-website-vue_app_dev:latest \
-vue_helper:latest
+IMAGES := nathansuss/nathan-programs:production \
+website-nathan-programs_dev:latest \
+vue-helper:latest
 
 clean:
 	@echo "$(GREEN)Stop containers$(RESET)"
