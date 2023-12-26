@@ -5,6 +5,8 @@
 
 # default message for git push - example: make push MSG="<my unique commit message>"
 MSG := another commit 
+VERCEL_PROJECT_NAME := website
+VUE_APP_NAME := nathan-programs
 
 # Define ANSI escape codes for colors
 GREEN := \033[32m
@@ -25,14 +27,15 @@ versions:
 start:
 	-docker compose up 
 
+# remember to modify name in docker-compose.yml and other Dockerfiles
 start-dev:
-	-docker compose up nathan-programs_dev
+	-docker compose up $(VUE_APP_NAME)_dev
 
 start-production:
-	-docker compose up nathan-programs_prod
+	-docker compose up $(VUE_APP_NAME)_prod
 
-IMAGES := nathansuss/nathan-programs:production \
-website-nathan-programs_dev:latest \
+IMAGES := nathansuss/$(VUE_APP_NAME):production \
+$(VERCEL_PROJECT_NAME)-$(VUE_APP_NAME)_dev:latest \
 vue-helper:latest
 
 clean:
@@ -47,8 +50,11 @@ clean:
 
 show:
 	-docker images 
-	-docker ps 
-	-docker volume ls 
+	@echo
+	-docker ps
+	@echo
+	-docker volume ls
+	@echo
 	-docker container ls
 
 vue-helper: clean
