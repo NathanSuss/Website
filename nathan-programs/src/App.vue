@@ -1,18 +1,58 @@
 <template>
   <!-- this is essentially the frontpage (for now) -->
   <div class="container">
-    <HeaderAttribute title = "Task Tracker"></HeaderAttribute>
+    <HeaderAttribute title="Task Tracker"></HeaderAttribute>
+    <TasksAttribute v-bind:tasks="tasks"></TasksAttribute>
+  </div>
+  <div class="container">
+    <p>Karina ur a nerd hahahahaha get rekt</p>
+    <p>if anyone is looking at this commit I was doing a silly joke on my friend</p>
   </div>
 </template>
 
 <script>
 // renaming imports has no effect as the export is default
 import HeaderAttribute from './components/HeaderAttribute.vue';
+import TasksAttribute from './components/TasksAttribute.vue';
 
 export default {
   name: 'App',
   components: {
-    HeaderAttribute
+    // these are jargon: "Registered" components
+    HeaderAttribute,
+    TasksAttribute
+  },
+  // create the tasks array
+  data() {
+    return {
+      tasks: []
+    }
+  },
+  // fill the task array using this 'lifecycle' method
+  // lifecycle methods are used at certain points for components, and we can
+  // hook into them to run our logic at those points in the life cycle
+  // created is when the component is being created
+  created() {
+    this.tasks = [
+      {
+        id: 1,
+        text: 'Doctors appointment',
+        day: 'March 1st at 2:30pm',
+        reminder: true
+      },
+      {
+        id: 2,
+        text: 'Meeting at school',
+        day: 'March 3rd at 3:30pm',
+        reminder: true
+      },
+      {
+        id: 3,
+        text: 'Vet appointment',
+        day: 'March 5th at 5:30pm',
+        reminder: false
+      }
+    ]
   }
 }
 </script>

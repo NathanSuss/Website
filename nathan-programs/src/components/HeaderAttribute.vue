@@ -1,13 +1,12 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <ButtonAttribute text="Add Task" color="green" ></ButtonAttribute>
+    <ButtonAttribute text="Add Task" color="green"></ButtonAttribute>
   </header>
 </template>
 
 <script>
 import ButtonAttribute from './ButtonAttribute.vue';
-
 
 export default {
   name: 'HeaderAttribute',
