@@ -1,30 +1,14 @@
-# nathan-programs
+# Nathan Programs - Personal Website
+Development of this site is still in its early stages. Once I have a more firm grasp of how to use Vue.js, I intend to present projects I undertake - accompanied by documentation, notes, and tutorials which could help another programmer learn the same way I did. The first project I plan to exhibit is the website itself.
 
-### sources
-Credit to this for helping me get Vue and Docker all setup: 
+## Linkedin
+- www.linkedin.com/in/nathan-sussman-6b3817229
+
+## Sources
+Credit for helping me get Vue and Docker setup for development and production: 
 - https://blog.q-bit.me/how-to-develop-and-deploy-a-vue-js-app-with-docker-part-one/
 - https://blog.q-bit.me/a-step-by-step-guide-for-developing-and-deploying-a-vue-js-app-with-docker-part-two/
 - https://blog.q-bit.me/a-step-by-step-guide-to-developing-and-deploying-vue-apps-with-docker-part-three/
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Credit for helping me learn JavaScript, Vue, CSS, and HTML syntax:
+- https://youtu.be/qZXt1Aom3Cs
