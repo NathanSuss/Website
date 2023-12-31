@@ -1,12 +1,11 @@
 <template>
   <!-- this is essentially the frontpage (for now) -->
   <div class="container">
-    <HeaderAttribute title="Task Tracker"></HeaderAttribute>
-    <TasksAttribute v-bind:tasks="tasks"></TasksAttribute>
+    <h1>Development of this site is still in its early stages. Once I have a more firm grasp of how to use Vue.js, I intend to present projects I undertake - accompanied by documentation and tutorials which could help another programmer learn the same way I did.</h1>
   </div>
   <div class="container">
-    <p>Karina ur a nerd hahahahaha get rekt</p>
-    <p>if anyone is looking at this commit I was doing a silly joke on my friend</p>
+    <HeaderAttribute title="Task Tracker"></HeaderAttribute>
+    <TasksAttribute v-bind:tasks="tasks"></TasksAttribute>
   </div>
 </template>
 
