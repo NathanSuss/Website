@@ -1,6 +1,6 @@
 #############################################################################
 # This makefile is mostly just to help me grapple with new syntax and flags #
-# by reminding me of things that I have already learned about			    #
+# by reminding me of things that I have already learned about		    #
 #############################################################################
 
 # default message for git push - example: make push MSG="<my unique commit message>"
