@@ -5,8 +5,8 @@
     <TasksAttribute v-bind:tasks="tasks"></TasksAttribute>
   </div>
   <div class="container">
-    <p>Karina ur a nerd hahahahaha get rekt</p>
-    <p>if anyone is looking at this commit I was doing a silly joke on my friend</p>
+    <h>Webgl testing</h>
+    <WebglAttribute></WebglAttribute>
   </div>
 </template>
 
@@ -14,13 +14,15 @@
 // renaming imports has no effect as the export is default
 import HeaderAttribute from './components/HeaderAttribute.vue';
 import TasksAttribute from './components/TasksAttribute.vue';
+import WebglAttribute from './components/WebglAttribute.vue';
 
 export default {
   name: 'App',
   components: {
     // these are jargon: "Registered" components
     HeaderAttribute,
-    TasksAttribute
+    TasksAttribute,
+    WebglAttribute
   },
   // create the tasks array
   data() {
