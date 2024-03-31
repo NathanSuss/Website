@@ -1,5 +1,5 @@
 # build stage
-FROM node:21.4.0-bookworm AS build-stage
+FROM node:21-bookworm AS build-stage
 
 WORKDIR /nathan-programs
 

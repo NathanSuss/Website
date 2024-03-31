@@ -3,6 +3,8 @@ services:
   nathan-programs_dev:
     build:
       dockerfile: dockerfiles/Dev.Dockerfile
+      args:
+        - m=3g
     volumes:
       - ~/Website/nathan-programs:/nathan-programs
     ports:

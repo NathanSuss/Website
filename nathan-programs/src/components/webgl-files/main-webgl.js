@@ -76,6 +76,7 @@ function getPositions() {
   return [
     0, 0,
     0, 0.5,
+    0, 0.5,
     0.7, 0,
   ];
 }
@@ -112,7 +113,7 @@ export function drawScene(gl) {
   gl.bindVertexArray(vao);
 
   // execute program
-  var primitiveType = gl.TRIANGLES;
+  var primitiveType = gl.LINES;
   var offsettwo = 0;
   var count = 3;
   gl.drawArrays(primitiveType, offsettwo, count);

@@ -5,7 +5,8 @@
 
 # default message for git push - example: make push MSG="<my unique commit message>"
 MSG := another commit 
-VERCEL_PROJECT_NAME := website
+# convert working directory/project name to lowercase
+VERCEL_PROJECT_NAME := $(notdir $(shell pwd | tr '[:upper:]' '[:lower:]'))
 VUE_APP_NAME := nathan-programs
 
 # Define ANSI escape codes for colors
@@ -22,6 +23,10 @@ push:
 versions:
 	node -v 
 	npm -v 
+	tsc --version
+
+compile.ts:
+	npx tsc 
 
 # run docker-compose.yml
 start:
