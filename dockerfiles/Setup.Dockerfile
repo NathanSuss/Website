@@ -7,7 +7,7 @@ RUN npm install -g webgl-utils --save-dev
 
 # https://blog.logrocket.com/how-to-use-vue-3-typescript/#using-vue-typescript
 # https://www.digitalocean.com/community/tutorials/typescript-new-project#step-1-starting-the-typescript-project
-RUN npm install -g typescript
+RUN npm install -g typescript --save-dev
 
 # working on this
 # RUN npm install -g @vue/tsconfig -D

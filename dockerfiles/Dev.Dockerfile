@@ -2,8 +2,8 @@ FROM node:21-bookworm
 
 WORKDIR /nathan-programs
 
-RUN npm install webgl-utils --save-dev
-RUN npm install typescript --save-dev
+RUN npm install -g webgl-utils --save-dev
+RUN npm install -g typescript --save-dev
 
 # working on this
 # RUN npm install -g @vue/tsconfig -D
