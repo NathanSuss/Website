@@ -39,10 +39,15 @@ ifeq ($(SERVICE),setup)
 else 
 	echo current app named: $(VUE_APP_NAME)
 endif
-
 	docker-compose run -p 8080:8080 --rm $(SERVICE)
 
-IMAGES := $(VERCEL_PROJECT_NAME)-setup $(VERCEL_PROJECT_NAME)-$(SERVICE)
+deploy:
+	docker login
+	docker build -f ./dockerfiles/Deploy.Dockerfile -t $(DOCKER_USERNAME)/$(VUE_APP_NAME):production $(VUE_APP_NAME)
+	docker push $(DOCKER_USERNAME)/$(VUE_APP_NAME):production
+	docker run -p 80:80 $(DOCKER_USERNAME)/$(VUE_APP_NAME):production
+
+IMAGES := $(VERCEL_PROJECT_NAME)-setup $(VERCEL_PROJECT_NAME)-$(SERVICE) $(DOCKER_USERNAME)/$(VUE_APP_NAME):production
 
 clean:
 	@echo "$(GREEN)Stopping containers$(RESET)"

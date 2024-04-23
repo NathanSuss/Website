@@ -23,7 +23,7 @@ services:
     ports:
       - "8080:8080"
 
-  # prod:
-  #   image: nathansuss/nathan-programs:production
-  #   ports:
-  #     - "80:80"
+  prod:
+    image: ${DOCKER_USERNAME}/${VUE_APP_NAME}:production
+    ports:
+      - "80:80"
