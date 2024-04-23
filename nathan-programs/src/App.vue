@@ -1,6 +1,5 @@
 <script setup lang="ts">
 // renaming imports has no effect as the export is default
-import HeaderAttribute from './components/HeaderAttribute.vue'
 import WebglAttribute from './components/WebglAttribute.vue'
 </script>
 
