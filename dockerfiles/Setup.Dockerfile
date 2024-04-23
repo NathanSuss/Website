@@ -1,32 +1,13 @@
-FROM node:21-bookworm
+FROM node:lts-bookworm 
 
-WORKDIR /vue-setup
+# in case you want to add a named user and group for volume permissions:
+# RUN adduser --system --gid <num> --uid <num> <username>
 
+# can also set system wide default privilages given to files and directories (more dangerous)
+# RUN umask 777
+
+WORKDIR /Yay
 RUN npm install -g @vue/cli
-RUN npm install -g webgl-utils --save-dev
 
-# https://blog.logrocket.com/how-to-use-vue-3-typescript/#using-vue-typescript
-# https://www.digitalocean.com/community/tutorials/typescript-new-project#step-1-starting-the-typescript-project
-RUN npm install -g typescript --save-dev
-
-# working on this
-# RUN npm install -g @vue/tsconfig -D
-
-# The following commands ensure access to our files in the volume externally.
-# If we left them out, changing files on our local setup
-# would fail due to insufficient permissions. 
-RUN userdel -r node
-ARG USER_ID
-ARG GROUP_ID
-RUN addgroup --gid $GROUP_ID user
-RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
-
-# Set the active user and open the interactive terminal
-USER user
-ENTRYPOINT [ "bash" ]
-
-
-# make app:
-# npx @vue/cli create <app-name>
-# cd typescript-app
-# npm run serve
+CMD [ "bash" ]
+# npm create vue <app name you want, set this in .env file> --default-features vue,typescript

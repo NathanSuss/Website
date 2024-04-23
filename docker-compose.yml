@@ -1,16 +1,29 @@
 version: "3.8"
 services:
-  nathan-programs_dev:
+  setup:
+    user: "1000:1000" # user id:group id (allows us to write whether in docker or on local machine)
+    stdin_open: true  # docker run -i
+    tty: true         # docker run -t
     build:
-      dockerfile: dockerfiles/Dev.Dockerfile
-      args:
+      dockerfile: dockerfiles/Setup.Dockerfile
+      args: 
         - m=3g
     volumes:
-      - ~/Website/nathan-programs:/nathan-programs
+      - ${PWD}:/Yay   # want to create new apps in this directory, so PWD
+  dev:
+    user: "1000:1000" # user id:group id
+    stdin_open: true  # docker run -i
+    tty: true         # docker run -t
+    build:
+      dockerfile: dockerfiles/Dev.Dockerfile
+      args: 
+        - m=3g
+    volumes:
+      - ${PWD}/${VUE_APP_NAME}:/Yay
     ports:
       - "8080:8080"
 
-  nathan-programs_prod:
-    image: nathansuss/nathan-programs:production
-    ports:
-      - "80:80"
+  # prod:
+  #   image: nathansuss/nathan-programs:production
+  #   ports:
+  #     - "80:80"

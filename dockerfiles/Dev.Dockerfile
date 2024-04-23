@@ -1,17 +1,15 @@
-FROM node:21-bookworm
+FROM node:lts-bookworm
 
-WORKDIR /nathan-programs
+WORKDIR /Yay
 
-RUN npm install -g webgl-utils --save-dev
-RUN npm install -g typescript --save-dev
-
-# working on this
-# RUN npm install -g @vue/tsconfig -D
-
+# RUN npm install -g webgl-utils
+# RUN npm install -g typescript
 
 # compile typescript on change (watch) - run in background
-RUN npx tsc -w &
+# RUN npx tsc -w &
 
 EXPOSE 8080
 
-CMD [ "npm", "run", "serve" ]
+# npm run dev was being difficult. 
+# It seems the port needs to be exposed in three places (here, dockercompose, makefile)
+CMD [ "npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "8080" ]

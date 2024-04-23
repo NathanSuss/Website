@@ -1,25 +1,25 @@
 <template>
-
-  <canvas id="canvas" width="400" height="300" ref="canvas">
-    Your browser does not support HTML5
-  </canvas>
-
+  <canvas id="canvas"> Your browser does not support HTML5 </canvas>
 </template>
 
 <script>
+import { mainGL } from './webgl-files/maingl.vue'
 
-import * as MainGL from "./webgl-files/main-webgl"
-
+// this is the typescript entrypoint (where all the typescript starts to run from)
 export default {
   name: 'WebglAttribute',
   mounted() {
-    const canvas = this.$refs.canvas; // Use ref to access canvas element
-    let gl = MainGL.initGlContext(canvas);
-    MainGL.drawScene(gl);
+    mainGL(document)
   }
   // props
   // components
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+#canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+</style>
