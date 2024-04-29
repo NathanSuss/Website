@@ -3,23 +3,31 @@
 </template>
 
 <script>
-import { mainGL } from './webgl-files/maingl.vue'
+import gl_State from '../webgl-files/gl_State'
+
+var state;
 
 // this is the typescript entrypoint (where all the typescript starts to run from)
 export default {
   name: 'WebglAttribute',
   mounted() {
-    mainGL(document)
+    state = new gl_State(document);
+    state.drawScene();
+  },
+  props: {
+    state
+  },
+  components: {
+    gl_State
   }
-  // props
   // components
 }
 </script>
 
 <style scoped>
 #canvas {
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   display: block;
 }
 </style>

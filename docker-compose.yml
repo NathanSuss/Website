@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   setup:
     user: "1000:1000" # user id:group id (allows us to write whether in docker or on local machine)
